@@ -67,6 +67,15 @@ Durante o desenvolvimento deste projeto foram praticados conceitos como:
 
 ---
 
+# 📸 Preview
+
+![Criando tarefa](imgs/Criando_Tarefa.png)
+![Edição de Tarefa](imgs/Edição_Tarefa.png)
+![Criando tarefa](imgs/Tela_principal.png)
+
+
+---
+
 # 👨‍💻 Autor
 
 Desenvolvido por Guilherme Fantato.
