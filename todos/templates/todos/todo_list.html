@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Afazeres{% endblock %}
+
+{% block content %}
+  
+        <h1>Lista de afazeres</h1>
+
+        {% if todo_list %}
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">#</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Criado em</th>
+                <th scope="col">Data de entrega</th>
+                <th scope="col">Finalizado em</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for todo in todo_list %}
+              <tr>
+                {% if todo.finished_at != default %}
+                  <th scope="row"><span class="badge bg-success">✓</span></th>
+                {% else %}
+                  <th scope="row"></th>
+                {% endif %}
+
+                <th scope="row">{{ todo.id }}</th>
+                {% if todo.finished_at != default %}
+                  <td><s>{{ todo.title }}</s></td>
+                {% else %}
+                  <td>{{ todo.title }}</td>
+                {% endif %}
+                <td>{{ todo.created_at }}</td>
+                <td>{{ todo.deadline }}</td>
+                <td>{{ todo.finished_at|default:"-" }}</td>
+                <td>
+                  <a href="{% url 'todo_complete' todo.pk %}" class="btn btn-sm btn-primary
+                  {% if todo.finished_at != default %}disabled{% endif %}"
+                  >Concluir</a>
+                  <a href="{% url 'todo_update' todo.pk %}" class="btn btn-sm btn-secondary {% if todo.finished_at != default %}disabled{% endif %}">Editar</a>
+                  <a href="{% url 'todo_delete' todo.pk %}" class="btn btn-sm btn-danger">Excluir</a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% else %}
+            <p>Nenhuma tarefa encontrada.</p>
+        {% endif %}
+
+        <a href="{% url 'todo_create' %}" class="btn btn-primary">Criar Tarefa</a>
+
+{% endblock %}
