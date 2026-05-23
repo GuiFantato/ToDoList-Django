@@ -71,7 +71,7 @@ Durante o desenvolvimento deste projeto foram praticados conceitos como:
 
 ![Criando tarefa](imgs/Criando_Tarefa.png)
 ![Edição de Tarefa](imgs/Edição_Tarefa.png)
-![Tela Principal](imgs/Tela_principal.png)
+![Tela Principal](imgs/Tela_Principal.png)
 
 
 ---
